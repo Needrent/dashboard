@@ -1,0 +1,112 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-size: 10px;
+}
+:root{
+    --p-size: 1.6rem;
+    --grid-gap: 0.5rem;
+    --rows-sum: 3;
+
+    --rows-min: 1fr repeat(var(--rows-sum), minmax(75px, 331px));
+    --rows-iphone6: 1fr repeat(var(--rows-sum), minmax(75px, 295px));
+    --rows-ipad: 1fr repeat(var(--rows-sum), minmax(75px, 224px));
+    --rows-ipadPro: 1fr repeat(var(--rows-sum), minmax(75px, 239px));
+    --rows-ipadProLarge: 1fr repeat(var(--rows-sum), minmax(75px, 230px));
+    --rows-HiPDI: 1fr repeat(var(--rows-sum), minmax(75px, 370px));
+    --rows-MDPI: 1fr repeat(var(--rows-sum), minmax(75px, 280px));
+    --rows-max: 1fr repeat(var(--rows-sum), minmax(75px, 390px));
+}
+body{
+    font-family: Open Sans,Arial,sans-serif;
+}
+p{
+    font-size: var(--p-size);
+}
+h2{
+    font-size: 2rem;
+}
+section.full{
+    grid-column: 1/-1;
+}
+main{
+    width: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: var(--rows-min);
+    column-gap: var(--grid-gap);
+    row-gap: var(--grid-gap);
+}
+section{
+    border:none;
+    text-align: center;
+    position: relative;
+}
+section h3{
+    position: absolute;
+    top: 1%;
+    left: 1%;
+}
+.white{
+    color: white;
+}
+section iframe{
+    width: 100%;
+    min-height: 300px;
+    height: 100%;
+}
+section video{
+    width: 100%;
+}
+
+@media (min-width: 375px){
+
+}
+@media (min-width: 414px){
+    main{
+        grid-template-rows: var(--rows-iphone6);
+    }
+}
+@media (min-width: 768px){
+    main{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: var(--rows-ipad); 
+    }
+}
+
+@media (min-width: 834px){
+    main{
+        grid-template-rows: var(--rows-ipadPro);   
+    }
+}
+@media (min-width: 1024px){
+    main{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: var(--rows-ipadProLarge);
+    }
+}
+@media (min-width: 1280px){
+    main{
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: var(--rows-MDPI);
+    }
+    section:nth-of-type(1){
+        grid-column: 1/3;
+        grid-row: 1/3;
+    }
+    section:nth-of-type(6){
+        grid-column: 2/-1;
+        grid-row: 3/-1;
+    }
+}
+@media (min-width: 1440px){
+    main{
+        grid-template-rows: var(--rows-HiPDI);
+    }
+}
+@media (min-width: 1920px){
+    main{
+        grid-template-rows: var(--rows-max);
+    }
+}

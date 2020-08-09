@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 10px;
+}
+
+body {
+    background-color: white;
+}
+p, ul{
+    font-size: 1rem;
+}
+h2{
+    font-size: 1.5rem;
+}
+
+:root{
+    --border-color: black;
+    --border: 3px solid var(--border-color);
+
+    --bar-width: 10px;
+}
+/************************
+
+    Circle Diagram
+
+*************************/
+.viz_container {
+    margin-left: 10vh;
+    margin-top: 10vh;
+    position: relative;
+    height: 60vh;
+}    
+
+.outer_ring {
+    width: 60vw;
+    height: 60vw;
+    border: var(--border);
+    position: absolute;
+    border-radius: 50%;
+}
+
+.inner_ring {
+    width: 30vw;
+    height: 30vw;
+    border: var(--border);
+    position: absolute;
+    left: 15vw;
+    top: 15vw;
+    border-radius: 50%;
+}
+
+.inner_number,
+.outer_number {
+    position: absolute;
+    color: var(--border-color);
+    font-family: sans-serif;
+    font-weight: 100;
+    left: 56vw;
+    top: 28vw;
+}
+
+.inner_number {
+    left: 42vw;
+}
+
+.bar_container {
+    width: 60vw;
+    height: 30vw;
+    position: absolute;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    transform-origin: bottom center;
+}
+span{
+    background: black;
+    padding: 0.5vw;
+    border-radius: 5px;
+}
+.name {
+    padding: 0.5rem;
+    color: white;
+    font-family: sans-serif;
+    font-weight: bold;
+    position: absolute;
+    top: -5vw;
+    left: 0;
+    right: 0;
+}
+
+.bar {
+    width: var(--bar-width);
+    background: black;
+    height: 100%;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 0;
+    transition: 2s;
+    
+}
+/************************
+
+    Barchart
+
+*************************/
+.barchart_container{
+    width: 90vw;
+    height: 70vh;
+    margin: 10vh auto 0 auto;
+    border-bottom: var(--border);
+    border-left: var(--border);
+    position: relative;
+    float: right;
+}
+.barchart_container h2{
+    position: absolute;
+    top: -10vh;
+}
+.indicator{
+    position: absolute;
+    z-index: 1000;
+    left: -6rem;
+    text-align: right;
+    width: 5rem;
+}
+.indicator:nth-of-type(1){
+    top: 0;
+}
+.indicator:nth-of-type(2){
+    top: 25%;
+}
+.indicator:nth-of-type(3){
+    top: 50%;
+}
+.indicator:nth-of-type(4){
+    top: 75%;
+}
+.indicator:nth-of-type(5){
+    bottom: 0;
+}
+.barchart_container .bar{
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.barchartText {
+    background: black;
+    top: -2rem;
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 0.25rem 0 0.25rem 0;
+    color: white;
+    border-radius: 1rem;
+}
+.barchart_container ul{
+    position: absolute;
+    top: 71vh;
+}
+.barchart_container ul li{
+    display: inline-block;
+    margin: 0 0.5rem 0.1rem 0;
+}
+/************************
+
+    Pie Diagram
+
+*************************/
+#piechart_container{
+    width: 100vw;
+    height: auto;
+    margin: 10vh 0 0 5vw;
+    display: grid;
+    /*grid-template-columns: 1fr 1fr;*/
+    grid-template-columns: fit-content(50%) 1fr;
+    grid-gap: 1rem;
+}
+#piechartList{
+    list-style: none;
+}
+#piechartList li{
+    width: max-content;
+    padding: 0.2rem 0.3rem 0.2rem 0.3rem;
+    margin: 0 0 0.2rem 0;
+    color: white;
+    border-radius: 5px;
+}
+.cirkel{
+    border-radius: 50%;
+    width: 100%;
+    height: auto;
+    transform: rotate(-90deg);
+}
+.piel{
+    stroke-width: 100;
+    stroke: #222222;
+    fill: none;
+}

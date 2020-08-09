@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenScreen 3D</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-chromakey-material/dist/aframe-chromakey-material.min.js"></script>
+
+  </head>
+<body>
+    <a-scene background="color:black">
+        <a-assets>
+            <video id="greenscreenvideo" src="video/trade_of_gdp.mp4" loop autoplay muted>
+            <video id="corona_11_1" src="video/Donut_Corona_China.mp4" loop autoplay muted>
+            <video id="corona_11_2" src="video/Donut_Corona_Denmark_1.mp4" loop autoplay muted>
+            <video id="corona_11_3" src="video/Donut_Corona_Iran.mp4" loop autoplay muted>
+            <video id="corona_11_4" src="video/Donut_Corona_Italy.mp4" loop autoplay muted>
+            <video id="corona_11_5" src="video/Donut_Corona_Spain.mp4" loop autoplay muted>
+            <video id="corona_11_6" src="video/Donut_Corona_World.mp4" loop autoplay muted>
+            <video id="corona_169" src="video/Corona_All_Countries.mp4" loop autoplay muted>
+          </a-assets>
+          <!--height (m) = width (m)/IMG width (px) * IMG height (px)-->
+          <a-video scale="2 2 1"
+                   position="0 1.6 -1.294"
+                   material="shader: chromakey; src: #greenscreenvideo; color: 0.1 0.9 0.2"
+                   geometry="primitive: plane; width: 1; height: 0.5625‬"></a-video>
+          <a-video scale="2 2 1"
+                   position="-2.891 1.6 2.300"
+                   rotation="0 90 0"
+                   src="#corona_169"
+                   width="1"
+                   height="0.5625"></a-video>
+          <a-entity class="DataWall" position="-2.564 0 0.854" rotation="0 60 0">
+                  <a-text value="COVID-19 Data"
+                  align="center"
+                  position="-1.184 2.3 0.301"
+                  rotation="0 30.000 0"></a-text>  
+                   <a-video scale="1 1 1"
+                   src="#corona_11_1" 
+                   position="0 1.6 0"
+                   rotation="0 0 0"
+                   width="1"
+                   height="1"></a-video>
+                   <a-video scale="1 1 1"
+                   src="#corona_11_2" 
+                   position="1 1.6 0"
+                   rotation="0 0 0"
+                   width="1"
+                   height="1"></a-video>
+                   <a-video scale="1 1 1"
+                   src="#corona_11_3" 
+                   position="2 1.6 0"
+                   rotation="0 0 0"
+                   width="1"
+                   height="1"></a-video>
+                   <a-video scale="1 1 1"
+                   src="#corona_11_4" 
+                   position="0 2.6 0"
+                   rotation="0 0 0"
+                   width="1"
+                   height="1"></a-video>
+                   <a-video scale="1 1 1"
+                   src="#corona_11_5" 
+                   position="2 2.6 0"
+                   rotation="0 0 0"
+                   width="1"
+                   height="1"></a-video>
+                   <a-video scale="1 1 1"
+                   src="#corona_11_6" 
+                   position="1 2.6 0"
+                   rotation="0 0 0"
+                   width="1"
+                   height="1"></a-video>
+            </a-entity>
+          <a-text value="Trade (% of GDP)"
+                  position="-0.892 2.391 -1.294"
+                  width="2.5"></a-text>
+      </a-scene>
+</body>
+</html>

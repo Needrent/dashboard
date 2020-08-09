@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My A-Frame Scene</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="scripts/componentScript.js"></script>
+  </head>
+  
+  <body>    
+    <a-scene color="black">
+      
+      <!--____________________ASSETS____________________-->
+      
+      <a-assets>
+        <a-mixin id='typeButton'
+                 ground
+                 geometry='primitive:box; height:0.5; width:0.9; depth:1'
+                 rotation='0 5 0'
+                 scale='1 1 1'></a-mixin>
+        <a-mixin id='typeColumn'
+                 geometry='primitive:cylinder; height:1; radius:0.2; '
+                 scale='0.1 0.1 0.1'
+                 material='color: #b200bf'></a-mixin>
+        <a-mixin id='typeText'
+                 geometry='primitive: plane; height: auto; width: 0.75'
+                 material='visible:false'
+                 text='color:white; wrapCount:10; align:center'></a-mixin>
+        <a-mixin id='typeDescription'
+                 geometry='primitive: plane; height: auto; width: 1.5'
+                 material='visible:false'
+                 text='color:white; wrapCount:10; align:center'></a-mixin>        
+      </a-assets>
+
+      <!--____________________SCENE ENTITIES____________________-->
+      <a-camera>
+        <a-cursor color="white"></a-cursor>
+      </a-camera>
+      <a-sky color="black"></a-sky>
+      <a-light type="ambient"></a-light>
+      
+      <!--RIG1 for general rotation of nested assembly-->
+      <a-entity class='rigAnchor'
+                rotation='0 0 0'
+                position='0 0 10'>
+        
+        <!--RIG2 for positional offset and local rotation of the barchart-->
+        <a-entity class='rigOffset container'
+                  position='-2 0 -14'
+                  rotation='0 0 0'
+                  scale='1 1 1'>
+          
+          <!--____________________BUTTONS____________________-->
+          
+          <!--INTERACTION BUTTON - INCREASE-->
+          <a-entity id='greenWasClicked'
+                    class='selectable'
+                    mixin='typeButton'
+                    position='0 0.75 0'
+                    material='color: green'></a-entity>
+          
+          <!--INTERACTION BUTTON - DECREASE-->
+          <a-entity id='redWasClicked'
+                    class='selectable'
+                    mixin='typeButton'
+                    position='0 0.25 0'
+                    material='color: red'></a-entity>
+          
+          <!--____________________COLUMN-C1____________________-->
+          
+          <!--c1-NUMBER-->
+          <a-entity id='n1'
+                    mixin='typeText'
+                    text='value: n/a'></a-entity>
+          <!--c1-COLUMN-->
+          <a-entity id='c1'
+                    mixin='typeColumn'></a-entity>
+          
+          <!--____________________COLUMN-C2____________________-->          
+          <!--c2-NUMBER-->
+          <a-entity id='n2'
+                    mixin='typeText'
+                    text='value: n/a'></a-entity>
+          <!--c2-COLUMN-->
+          <a-entity id='c2'
+                    mixin='typeColumn'></a-entity>
+          
+          <!--____________________COLUMN-C3____________________-->          
+          <!--c3-NUMBER-->
+          <a-entity id='n3'
+                    mixin='typeText'
+                    text='value: n/a'></a-entity>
+          <!--c3-COLUMN-->
+          <a-entity id='c3'
+                    mixin='typeColumn'></a-entity>    
+          
+          <!--____________________COLUMN-C4____________________-->          
+          <!--c3-NUMBER-->
+          <a-entity id='n4'
+                    mixin='typeText'
+                    text='value: n/a'></a-entity>
+          <!--c3-COLUMN-->
+          <a-entity id='c4'
+                    mixin='typeColumn'></a-entity>    
+          
+          <!--____________________INFO____________________-->
+          
+          <!--t1-TEXT-->
+          <a-entity id='totalEntries'
+                    mixin='typeDescription'
+                    position='3 0 2'
+                    rotation='0 0 0'
+                    text='value: n/a; wrapCount:25'></a-entity>
+          
+          <!--t2-TEXT-->
+          <a-entity id='myDescription'
+                    mixin='typeDescription'
+                    position='1 0 2'
+                    rotation='0 0 0'
+                    text='value: n/a; wrapCount:25'></a-entity>
+          
+        <!--closes RIG2-->  
+        </a-entity>
+        
+      <!--closes RIG1-->   
+      </a-entity>
+    
+      <a-camera><cursor></cursor></a-camera>    
+      
+      <a-entity cursor="rayOrigin: mouse; fuse: false;"
+                raycaster="objects: .selectable ;"></a-entity>
+      
+    </a-scene>
+  </body>
+</html>
